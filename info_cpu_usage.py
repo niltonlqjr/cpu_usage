@@ -19,7 +19,6 @@ cpu_col = args.cpu_usage_col
 
 tmp_logs = {}
 
-
 with open(args.input_file) as f:
     line = '\n'
     while line != '':
