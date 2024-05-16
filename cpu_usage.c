@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
               strlen(argv[3]);
 
     cmd_string = (char *) malloc ((cmd_len+1)*sizeof(char));
-    sprintf(cmd_string,"ps --sort=-pcpu -eo pcpu,pid,cmd | grep %s >> %s",argv[1],argv[3]);
+    sprintf(cmd_string,"ps --sort=-pcpu -eo pcpu,pid,cmd | grep %s | awk -F\" \" '{if ($3 == \"%s\") {print $1,$2,$3}}' >> %s",argv[1],argv[1],argv[3]);
     printf("%s",cmd_string);
     while(1){
         //system("ps --sort=-pcpu -eo pcpu,pid,cmd | grep %s >> %s",argv[1],argv[3]);
