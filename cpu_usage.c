@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
         return 0;
     }
     interval = atoi(argv[2]);
-    cmd_len = 50 + //space to string "ps --sort=-pcpu -eo pcpu,pid,cmd | grep  >> "
+    cmd_len = 100 + //"ps --sort=-pcpu -eo pcpu,pid,cmd | grep %s | awk -F\" \" '{if ($3 == \"%s\") {print $1,$2,$3}}' >> %s",argv[1],argv[1],argv[3]);"
               strlen(argv[1])+
               strlen(argv[3]);
 
